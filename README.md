@@ -42,20 +42,20 @@ Vamos precisar criar o projeto e fazer o build de tudo, utilize os comandos abai
 
 ```bash
 # Digite o comando abaixo, caso ainda não tenha o comando vue
-$ npm install -g @vue/cli
+npm install -g @vue/cli
 # Crie o novo projeto usando o vue init
-$ vue init huogerac/djavue mytodolist  # vue init evolutio/djavue myproject
-$ cd mytodolist
+vue init huogerac/djavue mytodolist  # vue init evolutio/djavue myproject
+cd mytodolist
 # Para criar os containers
-$ docker-compose build
+docker-compose build
 # Para iniciar os containers
-$ docker-compose up -d backend frontend
+docker compose up -d backend frontend
 ```
 
 Depois de fazer o build e iniciar todos containers, fazendo um `docker ps` é possível ver que temos os seguintes serviços rodando:
 
 ```
-$ docker ps
+docker ps
 CONTAINER ID   IMAGE                  COMMAND                 NAMES
 a72fb2ab3ba2   back-todoten           "wait-for-it localho…"  mytodolist_backend_1
 6ef83aab15e5   front-todoten          "docker-entrypoint.s…"  mytodolist_frontend_1
@@ -79,7 +79,7 @@ E estes containers estão organizados como no diagrama abaixo:
 Para conseguir logar, vamos precisar criar um usuário no Django. Podemos fazer isto entrando no container backend e rodar o comando do Django `./manage.py createsuperuser`:
 
 ```
-$ docker-compose exec backend ./manage.py createsuperuser
+docker compose exec backend ./manage.py createsuperuser
 
 Usuário (leave blank to use 'root'): admin
 Endereço de email: admin@example.com
@@ -97,12 +97,12 @@ Para preparar o ambiente para que seja possível evoluir o frontend, dado que al
 
 ```
 # Mudar o dono da pasta de root para o seu usuário
-$ sudo chown 1000:1000 -Rf frontend/
-$ cd frontend
-$ npm install
+sudo chown 1000:1000 -Rf frontend/
+cd frontend
+npm install
 
 # Para garantir que tudo está funcionando, o comando abaixo tem que rodar sem dar erro:
-$ npm run lint
+npm run lint
   > frontend@1.0.0 lint /home/user1/workspace/mytodolist/frontend
   > npm run lint:js
   > frontend@1.0.0 lint:js /home/user1/workspace/mytodolist/frontend
@@ -135,7 +135,7 @@ Para isto, ao invés de utilizar o `docker-compose up` apresentado no início, v
 
 ```bash
 
-$ docker-compose -f docker-compose.yml -f docker-compose.apimock.yml up frontend
+docker compose -f docker-compose.yml -f docker-compose.apimock.yml up frontend
 
 ```
 
