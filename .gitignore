@@ -1,0 +1,11 @@
+__pycache__
+dkdata
+*.pyc
+.coverage
+coverage.xml
+htmlcov/
+.idea
+/historia_sem_graca.log
+/static
+
+/apimock/node_modules
