@@ -8,7 +8,7 @@
       </v-col>
 
       <v-col cols="12">
-        <task-form :form-label="'Nova Tarefa'" @new-task="addNewTask" />
+        <task-form :form-label="'Insira sua história sem graça...'" @new-task="addNewTask" />
       </v-col>
 
       <v-col v-for="item in items" :key="item.id" cols="12">

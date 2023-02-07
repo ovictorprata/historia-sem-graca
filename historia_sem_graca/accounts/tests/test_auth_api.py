@@ -1,4 +1,4 @@
-from app1.accounts.models import User
+from historia_sem_graca.accounts.models import User
 from . import fixtures
 
 
