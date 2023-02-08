@@ -16,7 +16,7 @@
         class="mt-2 btn--form"
         @click="addNewTask"
       >
-        Enviar
+        Cadastrar história
       </v-btn>
     </v-form>
   </v-sheet>
@@ -46,10 +46,13 @@ export default {
   },
   methods: {
     addNewTask() {
-      this.$emit("newTask", {
+      if(this.title.length >= 10) {
+        this.$emit("newTask", {
         title: this.title,
       })
       this.title = ""
+      }
+      
     },
   },
 }

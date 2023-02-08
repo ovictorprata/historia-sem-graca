@@ -1,6 +1,6 @@
 <template>
-  <v-app-bar class="background-navbar" background-navbar>
-    <v-app-bar-title class="title">{{ title }}</v-app-bar-title>
+  <v-app-bar class="background--principal">
+    <v-app-bar-title class="title--nav-bar">{{ title }}</v-app-bar-title>
     <template #append>
       <v-btn icon="mdi-home" :to="{ name: 'base-home' }"></v-btn>
       <v-btn
@@ -47,13 +47,13 @@ export default {
 </script>
 
 <style>
-  .background-navbar {
+  .background--principal {
     background: #fffaaf;
   }
 
-  .title {
+  .title--nav-bar {
     color: rgb(66, 66, 66);
-    font-weight: 900;
+    font-weight: 700;
   }
 </style>
 

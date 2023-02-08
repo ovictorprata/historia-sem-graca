@@ -1,16 +1,18 @@
 <template>
   <v-container class="fill-height">
     <v-row justify="center" align="center">
-      <v-col cols="12">
+      <!-- <v-col cols="12">
         <v-card>
           <v-card-title class="headline"> Tasks </v-card-title>
         </v-card>
-      </v-col>
+      </v-col> -->
 
       <v-col cols="12">
         <task-form :form-label="'Insira sua história sem graça...'" @new-task="addNewTask" />
       </v-col>
 
+      <hr>
+      <p>Confira as histórias sem graça:</p>
       <v-col v-for="item in items" :key="item.id" cols="12">
         <task :task="item" />
       </v-col>
@@ -51,7 +53,7 @@ export default {
     addNewTask(task) {
       this.loading = true
       TasksApi.addNewTask(task.title).then((task) => {
-        this.appStore.showSnackbar(`Nova tarefa adicionada #${task.id}`)
+        this.appStore.showSnackbar(`Sua história sem graça foi adicionada #${task.id}`)
         this.getTasks()
         this.loading = false
         console.log("oi")

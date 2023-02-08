@@ -4,17 +4,16 @@
     color="#fffaaf"
     theme="dark"
     max-width="400"
-    prepend-icon="mdi-face-man-outline"
-    title="HSG"
+    title="🗿"
   >
 
     <v-card-text class="text-h5 py-2" color="black">
       {{ task.description }}
     </v-card-text>
 
-            <hr>
+    <hr color="grey">
     <v-card-actions>
-    <v-list-item-title>asdasdasdasds</v-list-item-title>
+    <!-- <v-list-item-title>asdasdasdasds</v-list-item-title> -->
       <v-list-item class="w-100">
         <template #append>
           <div class="justify-self-end">
@@ -51,7 +50,6 @@ export default {
     task: {
       type: Object,
       default: null,
-      roger: "usalinter",
     },
   },
   data: () => ({}),
