@@ -34,7 +34,8 @@ def remove_story(request, pk):
 @ajax_login_required
 def update_story(request):
     id = request.POST.get('id_to_up')
-    todo_svc.update_story(id)
+    description = request.POST.get('new_description')
+    todo_svc.update_story(id, description)
     return HttpResponse("Hello, World!")
 
     

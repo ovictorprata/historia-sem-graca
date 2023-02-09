@@ -62,11 +62,11 @@ def test_altera_qualquer_historia_caso_usuario_esteja_logado(client, db):
 
     new_description = "minha mãe comprou 100000000000000000kg de açúcar pq tava na promoção"
 
+    client.post("/api/tasks/update", {'id_to_up' : story.id, 'new_description': new_description})
+
+    resp = client.get("/api/tasks/list")
     data = resp.json()
-
-    story_to_update = client.post("/api/tasks/update", {'id_to_up' : story.id, 'new_description': new_description})
-
-
+    
     assert resp.status_code == 200
     assert data == {"todos": [
                         {"description": "minha mãe comprou 100000000000000000kg de açúcar pq tava na promoção", "likes": 0, "id": 1},
