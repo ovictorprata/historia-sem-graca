@@ -18,5 +18,11 @@ def delete_todo(pk):
     story.delete()
     return redirect('tasks/list')
 
+def update_story(pk, description):
+    story_to_update = Todo.objects.get(pk=pk)
+    story_to_update.description = description
+    story_to_update.save()
+
+
 
     

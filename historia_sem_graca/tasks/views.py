@@ -22,8 +22,19 @@ def list_todos(request):
     return JsonResponse({"todos": todos})
 
 @ajax_login_required
+def get_one_story(request):
+    todos = todo_svc.list_todos()
+    return JsonResponse({"todos": todos})
+
+@ajax_login_required
 def remove_story(request, pk):
     todo_svc.delete_todo(pk)
+    return HttpResponse("Hello, World!")
+
+@ajax_login_required
+def update_story(request):
+    id = request.POST.get('id_to_up')
+    todo_svc.update_story(id)
     return HttpResponse("Hello, World!")
 
     

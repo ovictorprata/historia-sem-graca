@@ -7,5 +7,7 @@ htmlcov/
 .idea
 /historia_sem_graca.log
 /static
+.venv/
+.vscode/
 
 /apimock/node_modules

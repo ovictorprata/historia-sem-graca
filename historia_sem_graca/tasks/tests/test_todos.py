@@ -1,6 +1,7 @@
 from historia_sem_graca.accounts.models import User
 from historia_sem_graca.accounts.tests import fixtures
 from historia_sem_graca.tasks.models import Todo
+from model_bakery import baker
 from django.shortcuts import get_object_or_404
 import json
 
@@ -26,7 +27,7 @@ def test_criar_historia_com_login(client, db):
 
     assert resp.status_code == 200
 
-def test_deleta_historia_com_login_do_proprio_usuario_logado(client, db):
+def test_deleta_qualquer_historia_caso_usuario_esteja_logado(client, db):
     fixtures.user_jon()
     client.force_login(User.objects.get(username="jon"))
 
@@ -52,15 +53,18 @@ def test_deleta_historia_com_login_do_proprio_usuario_logado(client, db):
                         {"description": "queria comer miojo, mas tô com preguiça. conclusão: não vou comer miojo.", "likes": 0, "id": 3},
                     ]}
     
-def test_altera_historia_com_login_do_proprio_usuario_logado(client, db):
+def test_altera_qualquer_historia_caso_usuario_esteja_logado(client, db):
     fixtures.user_jon()
     client.force_login(User.objects.get(username="jon"))
-
-    Todo.objects.create(description="minha mãe comprou 5kg de açúcar pq tava na promoção")
-    Todo.objects.update(description="minha mãe comprou 100000000000000000kg de açúcar pq tava na promoção")
-
     resp = client.get("/api/tasks/list")
+    story = baker.make(Todo)
+    
+
+    new_description = "minha mãe comprou 100000000000000000kg de açúcar pq tava na promoção"
+
     data = resp.json()
+
+    story_to_update = client.post("/api/tasks/update", {'id_to_up' : story.id, 'new_description': new_description})
 
 
     assert resp.status_code == 200
