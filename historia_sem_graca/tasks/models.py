@@ -22,11 +22,15 @@ class ActivityLog(models.Model):
 
 class Todo(models.Model):
     description = models.CharField(max_length=512)
-    done = models.BooleanField(default=False)
+    likes = models.IntegerField(default=0)
 
     def to_dict_json(self):
         return {
             'id': self.id,
             'description': self.description,
-            'done': self.done,
+            'likes': self.likes,
         }
+
+    # @property
+    # def id(self):
+    #     return id

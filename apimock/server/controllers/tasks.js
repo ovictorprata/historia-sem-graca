@@ -41,4 +41,19 @@ module.exports = {
     data.tasks.push(newTask);
     res.send(newTask);
   },
+  // remove: (req, res) => {
+  //   const loggedUser = accounts.loginRequired(req, res);
+  //   if (!loggedUser) {
+  //     return;
+  //   }
+  //   const { description } = req.body;
+  //   const id = getMaxId(data.tasks) + 1;
+  //   const newTask = {
+  //     id,
+  //     description,
+  //     userId: loggedUser.id,
+  //   };
+  //   data.tasks.push(newTask);
+  //   res.send(newTask);
+  // },
 };
