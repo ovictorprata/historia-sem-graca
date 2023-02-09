@@ -26,16 +26,16 @@ export default {
         })
     })
   },
-  removeTask: (id) => {
-    return new Promise((resolve, reject) => {
-      api
-        .post(`/api/tasks/${id}`, apiHelpers.dataToForm({ description }))
-        .then((response) => {
-          return resolve(response.data)
-        })
-        .catch((error) => {
-          return reject(error)
-        })
-    })
-  },
+  // removeTask: (id) => {
+  //   return new Promise((resolve, reject) => {
+  //     api
+  //       .post(`/api/tasks/${id}`)
+  //       .then((response) => {
+  //         return resolve(response.data)
+  //       })
+  //       .catch((error) => {
+  //         return reject(error)
+  //       })
+  //   })
+  // },
 }

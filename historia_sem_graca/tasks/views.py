@@ -19,3 +19,7 @@ def add_todo(request):
 def list_todos(request):
     todos = todo_svc.list_todos()
     return JsonResponse({"todos": todos})
+
+@ajax_login_required
+def remove_story(request, pk):
+    todo_svc.delete_todo(pk)

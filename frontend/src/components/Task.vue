@@ -17,7 +17,7 @@
       <v-list-item class="w-100">
         <template #append>
           <div class="justify-self-end">
-            <span class="subheading me-2">{{ task.like }}</span>
+            <span class="subheading me-2">{{ task.likes }}</span>
             <v-icon class="me-1 like" icon="mdi-thumb-up"></v-icon>
             <v-icon class="me-1 dislike" icon="mdi-thumb-down"></v-icon>
           </div>

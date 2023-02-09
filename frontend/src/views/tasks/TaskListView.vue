@@ -56,7 +56,6 @@ export default {
         this.appStore.showSnackbar(`Sua história sem graça foi adicionada #${task.id}`)
         this.getTasks()
         this.loading = false
-        console.log("oi")
       })
     },
   },
