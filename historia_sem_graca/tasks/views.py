@@ -23,7 +23,7 @@ def list_todos(request):
 
 @ajax_login_required
 def remove_story(request, pk):
-    todo_svc.delete_todo(request, pk)
+    todo_svc.delete_todo(pk)
     return HttpResponse("Hello, World!")
 
     

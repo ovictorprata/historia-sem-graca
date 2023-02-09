@@ -57,4 +57,14 @@ def test_altera_historia_com_login_do_proprio_usuario_logado(client, db):
     client.force_login(User.objects.get(username="jon"))
 
     Todo.objects.create(description="minha mãe comprou 5kg de açúcar pq tava na promoção")
+    Todo.objects.update(description="minha mãe comprou 100000000000000000kg de açúcar pq tava na promoção")
+
+    resp = client.get("/api/tasks/list")
+    data = resp.json()
+
+
+    assert resp.status_code == 200
+    assert data == {"todos": [
+                        {"description": "minha mãe comprou 100000000000000000kg de açúcar pq tava na promoção", "likes": 0, "id": 1},
+                    ]}
 
