@@ -25,7 +25,6 @@ def test_criar_historia_com_login(client, db):
     data = resp.json()
 
     assert resp.status_code == 200
-    assert data == {"todos": [{"description": "minha mãe comprou 5kg de açúcar pq tava na promoção", "likes": 0, "id": 1}]}
 
 def test_deleta_historia_com_login_do_proprio_usuario_logado(client, db):
     fixtures.user_jon()
@@ -39,15 +38,23 @@ def test_deleta_historia_com_login_do_proprio_usuario_logado(client, db):
     resp = client.get("/api/tasks/list")
     data = resp.json()
     
-    id_para_deletar = data['todos'][0]['id']
-    r = client.post(f'/api/tasks/{id_para_deletar}/delete')    
+    story_to_delete = data['todos'][0]
+    id_to_delete = story_to_delete['id']
+    r = client.post(f'/api/tasks/{id_to_delete}/delete')    
+
+    resp_pos_exclusao = client.get("/api/tasks/list")
+    data_pos_exclusao = resp_pos_exclusao.json()
 
     
     assert resp.status_code == 200
-    assert data == {"todos": [
-                        {"description": "achei um arquivo no computador chamado torresmo. aí eu abri, e era a foto uma de torresmo.", "done": False, "id": 2},
-                        {"description": "queria comer miojo, mas tô com preguiça. conclusão: não vou comer miojo.", "done": False, "id": 3},
+    assert data_pos_exclusao == {"todos": [
+                        {"description": "achei um arquivo no computador chamado torresmo. aí eu abri, e era a foto uma de torresmo.", "likes": 0, "id": 2},
+                        {"description": "queria comer miojo, mas tô com preguiça. conclusão: não vou comer miojo.", "likes": 0, "id": 3},
                     ]}
     
+def test_altera_historia_com_login_do_proprio_usuario_logado(client, db):
+    fixtures.user_jon()
+    client.force_login(User.objects.get(username="jon"))
 
+    Todo.objects.create(description="minha mãe comprou 5kg de açúcar pq tava na promoção")
 

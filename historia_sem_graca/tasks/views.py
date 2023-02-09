@@ -1,5 +1,6 @@
 # coding: utf-8
 import json
+from django.http import HttpResponse
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -22,4 +23,7 @@ def list_todos(request):
 
 @ajax_login_required
 def remove_story(request, pk):
-    todo_svc.delete_todo(pk)
+    todo_svc.delete_todo(request, pk)
+    return HttpResponse("Hello, World!")
+
+    
