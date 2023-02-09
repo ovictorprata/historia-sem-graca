@@ -25,3 +25,6 @@ def test_criar_tarefa_com_login(client, db):
 
     assert resp.status_code == 200
     assert data == {"todos": [{"description": "walk the dog", "done": False, "id": 1}]}
+
+def test_deleta_historia_com_login_do_usuario_logado(client, db):
+    
