@@ -16,7 +16,7 @@ def list_todos():
 def list_random_story():
     all_stories = Todo.objects.all()
     random_story = random.choice(all_stories)
-    time.sleep(1)
+    time.sleep(.5)
     return [random_story.to_dict_json()]
 
 def delete_todo(pk):

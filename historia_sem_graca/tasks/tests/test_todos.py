@@ -73,8 +73,6 @@ def test_altera_qualquer_historia_caso_usuario_esteja_logado(client, db):
                     ]}
 
 def test_dar_like_sem_estar_logado_aumentando_o_like_em_1(client, db):
-    fixtures.user_jon()
-    client.force_login(User.objects.get(username="jon"))
     story = baker.make(Todo)
 
     client.post("/api/tasks/like", {'id' : story.id})
@@ -84,4 +82,12 @@ def test_dar_like_sem_estar_logado_aumentando_o_like_em_1(client, db):
     
     assert data == {"todos": [
                         {"description": story.description, "likes": 1, "id": story.id},
+                    ]}
+
+def test_list_random_story_without_login(client, db):
+    story = baker.make(Todo)
+    resp = client.get("/api/tasks/list")
+    data = resp.json()
+    assert data == {"todos": [
+                        {"description": story.description, "likes": story.likes, "id": story.id},
                     ]}

@@ -10,7 +10,6 @@ from .service import todo_svc
 
 
 @csrf_exempt
-@ajax_login_required
 def add_todo(request):
     todo = todo_svc.add_todo(request.POST["description"])
     return JsonResponse(todo)
@@ -19,7 +18,6 @@ def list_random_story(request):
     todos = todo_svc.list_random_story()
     return JsonResponse({"todos": todos})
 
-@ajax_login_required
 def list_todos(request):
     todos = todo_svc.list_todos()
     return JsonResponse({"todos": todos})

@@ -17,7 +17,7 @@ export default {
   getTasksNonLogged: () => {
     return new Promise((resolve, reject) => {
       api
-        .get("/api/tasks/list_non_logged")
+        .get("/api/tasks/list_random_story")
         .then((response) => {
           return resolve(response.data)
         })
