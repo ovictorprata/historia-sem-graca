@@ -1,64 +1,38 @@
 <template>
-  <div>
+  <div class='background-principal' :style="{minHeight: '50%'}">
     <v-row justify="center" align="center">
   <app-nav-bar/>
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-left fill-height">
 
+    <v-row class="d-flex align-center justify-center">
+        <v-col cols="auto">
+          <v-btn
+            color="yellow"
+            min-width="228"
+            rel="noopener noreferrer"
+            size="x-large"
+            variant="flat"
+            class="my-4"
+            @click="getTasksNonLogged()">
+            
+            <v-icon v-if="loading === false" icon="mdi-cached" size="large" start />
+            <v-progress-circular
+              v-if="loading"
+              indeterminate
+              color="amber"
+              class="mr-3"
+              :size="21"
+            ></v-progress-circular>
+            Outra história
+          </v-btn>       
+        </v-col>
+      </v-row>
+
     <v-col v-for="item in items" :key="item.id" cols="12">
         <task-sem-permissoes :task="item"/>
       </v-col>
         
-      <v-row class="d-flex align-center justify-center">
-        <v-col cols="auto">
-          <v-btn
-            color="primary"
-            :to="{ name: 'base-getstarted' }"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            variant="flat"
-            class="my-4">
-            <v-icon icon="mdi-account-plus" size="large" start />
-            Registre-se
-          </v-btn>
-          <v-btn
-            v-if="!loggedUser"
-            color="primary"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            variant="flat"
-            :to="{ name: 'accounts-login' }"
-            class="my-4">
-            <v-icon icon="mdi-account-arrow-right-outline" size="large" start />
-            Login
-          </v-btn>
-          <v-btn
-            v-else
-            color="primary"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            variant="flat"
-            :to="{ name: 'accounts-logout' }">
-            <v-icon icon="mdi-account-arrow-right-outline" size="large" start />
-            Logout
-          </v-btn>
-          <v-btn
-            v-if="loggedUser"
-            color="primary"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            variant="flat"
-            :to="{ name: 'tasks-list' }"
-            class="my-4">
-            <v-icon icon="mdi-folder-star-multiple" size="large" start />
-            tarefas
-          </v-btn>
-        </v-col>
-      </v-row>
     </v-responsive>
   </v-container>
   </v-row>

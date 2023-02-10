@@ -72,3 +72,16 @@ def test_altera_qualquer_historia_caso_usuario_esteja_logado(client, db):
                         {"description": "minha mãe comprou 100000000000000000kg de açúcar pq tava na promoção", "likes": 0, "id": 1},
                     ]}
 
+def test_dar_like_sem_estar_logado_aumentando_o_like_em_1(client, db):
+    fixtures.user_jon()
+    client.force_login(User.objects.get(username="jon"))
+    story = baker.make(Todo)
+
+    client.post("/api/tasks/like", {'id' : story.id})
+
+    resp = client.get("/api/tasks/list")
+    data = resp.json()
+    
+    assert data == {"todos": [
+                        {"description": story.description, "likes": 1, "id": story.id},
+                    ]}

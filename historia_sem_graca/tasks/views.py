@@ -15,8 +15,8 @@ def add_todo(request):
     todo = todo_svc.add_todo(request.POST["description"])
     return JsonResponse(todo)
 
-def list_todos_non_logged(request):
-    todos = todo_svc.list_todos()
+def list_random_story(request):
+    todos = todo_svc.list_random_story()
     return JsonResponse({"todos": todos})
 
 @ajax_login_required
@@ -25,20 +25,17 @@ def list_todos(request):
     return JsonResponse({"todos": todos})
 
 @ajax_login_required
-def get_one_story(request):
-    todos = todo_svc.list_todos()
-    return JsonResponse({"todos": todos})
-
-@ajax_login_required
 def remove_story(request, pk):
     todo_svc.delete_todo(pk)
-    return HttpResponse("Hello, World!")
 
 @ajax_login_required
 def update_story(request):
     id = request.POST.get('id_to_up')
     description = request.POST.get('new_description')
     todo_svc.update_story(id, description)
-    return HttpResponse("Hello, World!")
 
+def like(request):
+    id = request.POST.get('id')
+    todo_svc.like_story(id)
+    return HttpResponse("Hello World!")
     

@@ -1,13 +1,13 @@
 <template>
-  <v-app-bar class="background--principal">
+  <v-app-bar class="background--principal text">
     <v-app-bar-title class="title--nav-bar">{{ title }}</v-app-bar-title>
     <template #append>
       <v-btn icon="mdi-home" :to="{ name: 'base-home' }" color="black"></v-btn>
-      <v-btn
+      <!-- <v-btn
         :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
         color="black"
         @click.stop="themeClick">
-      </v-btn>
+      </v-btn> -->
       <v-btn icon="mdi-magnify" color="black"></v-btn>
 
       <v-btn icon="mdi-logout" color="black">
