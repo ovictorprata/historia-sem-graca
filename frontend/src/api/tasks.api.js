@@ -14,6 +14,18 @@ export default {
         })
     })
   },
+  getTasksNonLogged: () => {
+    return new Promise((resolve, reject) => {
+      api
+        .get("/api/tasks/list_non_logged")
+        .then((response) => {
+          return resolve(response.data)
+        })
+        .catch((error) => {
+          return reject(error)
+        })
+    })
+  },
   addNewTask: (description) => {
     return new Promise((resolve, reject) => {
       api

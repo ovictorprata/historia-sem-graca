@@ -15,6 +15,9 @@ def add_todo(request):
     todo = todo_svc.add_todo(request.POST["description"])
     return JsonResponse(todo)
 
+def list_todos_non_logged(request):
+    todos = todo_svc.list_todos()
+    return JsonResponse({"todos": todos})
 
 @ajax_login_required
 def list_todos(request):

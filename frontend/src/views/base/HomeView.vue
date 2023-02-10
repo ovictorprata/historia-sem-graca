@@ -4,9 +4,10 @@
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-center fill-height">
 
+    <v-col v-for="item in items" :key="item.id" cols="12">
+     {{item.description}}
+      </v-col>
 
-
-      <div class="text-body-1 mb-n1 pt-4">aqui seria minhas tasks todas</div>
 
       <div class="py-6" />
 
@@ -69,13 +70,33 @@
 import { mapState } from "pinia"
 import { useAccountsStore } from "@/stores/accountsStore"
 import AppNavBar from "@/components/AppNavBar.vue"
+import TasksApi from "@/api/tasks.api.js"
 
 export default {
+  
   components: {
     AppNavBar,
+  },
+  data() {
+    return {
+      loading: false,
+      items: [],
+    }
   },
   computed: {
     ...mapState(useAccountsStore, ["loggedUser"]),
   },
+   mounted() {
+    this.getTasksNonLogged()
+  },
+  methods: {
+    getTasksNonLogged() {
+      this.loading = true
+      TasksApi.getTasksNonLogged().then((data) => {
+        this.items = data.todos
+        this.loading = false
+      })
+    },
+  }
 }
 </script>

@@ -62,8 +62,8 @@ export default {
       this.loading = true
       TasksApi.removeTask(story.id).then((data) => {
         this.items = data.todos
-        this.loading = false
         this.getTasks()
+        this.loading = false
         
       })
     },
