@@ -1,16 +1,14 @@
 <template>
   <div>
+    <v-row justify="center" align="center">
   <app-nav-bar/>
   <v-container class="fill-height">
-    <v-responsive class="d-flex align-center text-center fill-height">
+    <v-responsive class="d-flex align-center text-left fill-height">
 
     <v-col v-for="item in items" :key="item.id" cols="12">
-     {{item.description}}
+        <task-sem-permissoes :task="item"/>
       </v-col>
-
-
-      <div class="py-6" />
-
+        
       <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
           <v-btn
@@ -63,6 +61,7 @@
       </v-row>
     </v-responsive>
   </v-container>
+  </v-row>
 </div>
 </template>
 
@@ -71,16 +70,20 @@ import { mapState } from "pinia"
 import { useAccountsStore } from "@/stores/accountsStore"
 import AppNavBar from "@/components/AppNavBar.vue"
 import TasksApi from "@/api/tasks.api.js"
+import TaskSemPermissoes from "@/components/TaskSemPermissoes.vue"
 
 export default {
   
   components: {
     AppNavBar,
+    TaskSemPermissoes
   },
   data() {
     return {
       loading: false,
       items: [],
+      id: null,
+      title: null,
     }
   },
   computed: {
