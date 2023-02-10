@@ -14,7 +14,7 @@
       <hr>
       <p>Confira as histórias sem graça:</p>
       <v-col v-for="item in items" :key="item.id" cols="12">
-        <task :task="item" />
+        <task :task="item" @delete-story="deleteStory"/>
       </v-col>
     </v-row>
   </v-container>
@@ -56,6 +56,15 @@ export default {
         this.appStore.showSnackbar(`Sua história sem graça foi adicionada #${task.id}`)
         this.getTasks()
         this.loading = false
+      })
+    },
+    deleteStory(story) {
+      this.loading = true
+      TasksApi.removeTask(story.id).then((data) => {
+        this.items = data.todos
+        this.loading = false
+        this.getTasks()
+        
       })
     },
   },

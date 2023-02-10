@@ -26,16 +26,17 @@ export default {
         })
     })
   },
-  // removeTask: (id) => {
-  //   return new Promise((resolve, reject) => {
-  //     api
-  //       .post(`/api/tasks/${id}`)
-  //       .then((response) => {
-  //         return resolve(response.data)
-  //       })
-  //       .catch((error) => {
-  //         return reject(error)
-  //       })
-  //   })
-  // },
+  removeTask: (id) => {
+    return new Promise((resolve, reject) => {
+      console.log('bateu na api')
+      api
+        .post(`/api/tasks/${id}/delete`)
+        .then((response) => {
+          return resolve(response.data)
+        })
+        .catch((error) => {
+          return reject(error)
+        })
+    })
+  },
 }

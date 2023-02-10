@@ -1,5 +1,6 @@
 <template>
   <VLayout>
+  <h1 color="white">aaa</h1>
     <app-error-dialog :show="showErrorMessage" :message="errorMessage" @close="closeErrorDialog" />
     <app-snackbar />
     <VApp :theme="theme">

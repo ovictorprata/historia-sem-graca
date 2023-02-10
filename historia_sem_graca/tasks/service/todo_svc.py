@@ -16,7 +16,6 @@ def delete_todo(pk):
     # story = get_list_or_404(Todo, pk=pk)
     story = Todo.objects.get(pk=pk)
     story.delete()
-    return redirect('tasks/list')
 
 def update_story(pk, description):
     story_to_update = Todo.objects.get(pk=pk)

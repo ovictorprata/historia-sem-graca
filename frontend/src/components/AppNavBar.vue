@@ -2,17 +2,19 @@
   <v-app-bar class="background--principal">
     <v-app-bar-title class="title--nav-bar">{{ title }}</v-app-bar-title>
     <template #append>
-      <v-btn icon="mdi-home" :to="{ name: 'base-home' }"></v-btn>
+      <v-btn icon="mdi-home" :to="{ name: 'base-home' }" color="black"></v-btn>
       <v-btn
         :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
-        @click.stop="themeClick"></v-btn>
-      <v-btn icon="mdi-magnify"></v-btn>
+        color="black"
+        @click.stop="themeClick">
+      </v-btn>
+      <v-btn icon="mdi-magnify" color="black"></v-btn>
 
-      <v-btn icon="mdi-dots-vertical">
-        <v-icon icon="mdi-dots-vertical" />
+      <v-btn icon="mdi-logout" color="black">
+        <v-icon icon="mdi-logout" />
         <v-menu activator="parent">
           <v-list>
-            <v-list-item :to="{ name: 'accounts-logout' }"> Sair </v-list-item>
+            <v-list-item v-if="!loggedUser" :to="{ name: 'accounts-logout' }"> Sair </v-list-item>
           </v-list>
         </v-menu>
       </v-btn>
@@ -48,7 +50,7 @@ export default {
 
 <style>
   .background--principal {
-    background: #fffaaf;
+    background: #fffaaf !important;
   }
 
   .title--nav-bar {

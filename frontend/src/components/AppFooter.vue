@@ -31,8 +31,8 @@ export default {
 
 <style>
   .footer {
-    background: rgb(199, 199, 71);
-    color: white;
+    background: #fffaaf !important;
+    color: black !important;
     font-weight: bold;
   }
 </style>

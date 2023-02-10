@@ -1,12 +1,19 @@
 <template>
-  <div>
-  <app-nav-bar/>
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-center fill-height">
+      <v-img contain height="240" src="@/assets/logo.svg" />
+      <blockquote class="blockquote text-h5">
+        &#8220;Primeiro, resolva o problema. Depois, escreva o código.&#8221;
+        <footer>
+          <small>
+            <em>&mdash; John Johnson &mdash;</em>
+          </small>
+        </footer>
+      </blockquote>
 
-
-
-      <div class="text-body-1 mb-n1 pt-4">aqui seria minhas tasks todas</div>
+      <div class="text-body-1 mb-n1 pt-4">Bem-vindo ao template</div>
+      <h1 class="text-h2 font-weight-bold">Djàvue</h1>
+      <code>Vue3 + Vuetify + Vite</code>
 
       <div class="py-6" />
 
@@ -20,8 +27,8 @@
             size="x-large"
             variant="flat"
             class="my-4">
-            <v-icon icon="mdi-account-plus" size="large" start />
-            Registre-se
+            <v-icon icon="mdi-speedometer" size="large" start />
+            Get Started
           </v-btn>
           <v-btn
             v-if="!loggedUser"
@@ -62,18 +69,13 @@
       </v-row>
     </v-responsive>
   </v-container>
-</div>
 </template>
 
 <script>
 import { mapState } from "pinia"
 import { useAccountsStore } from "@/stores/accountsStore"
-import AppNavBar from "@/components/AppNavBar.vue"
 
 export default {
-  components: {
-    AppNavBar,
-  },
   computed: {
     ...mapState(useAccountsStore, ["loggedUser"]),
   },

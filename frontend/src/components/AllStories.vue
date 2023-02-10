@@ -18,9 +18,6 @@
         <template #append>
           <div class="justify-self-end">
             <span class="subheading me-2">{{ task.likes }}</span>
-            <v-icon class="me-1" icon="mdi-trash-can" @click="deleteStory(task.id)"></v-icon>
-            <v-icon class="me-1 like" icon="mdi-thumb-up"></v-icon>
-            <v-icon class="me-1 dislike" icon="mdi-thumb-down"></v-icon>
           </div>
         </template>
       </v-list-item>
@@ -37,31 +34,6 @@ export default {
       default: null,
     },
   },
-  emits: ["deleteStory"],
-  data: () => ({
-    id: ''
-  }),
-  methods: {
-    deleteStory(id) {
-      this.id = id
-      this.$emit("deleteStory", {
-        id: this.id
-      })
-    },
-  }
+  data: () => ({}),
 }
 </script>
-
-<style>
-  .title {
-    color: black;
-  }
-
-  .like {
-    color: green
-  }
-
-  .dislike {
-    color: red
-  }
-</style>
