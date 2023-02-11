@@ -6,7 +6,7 @@
     max-width="400"
 
     
-    :title="'#' + String(task.id)"
+    :title="'história - #' + String(task.id)"
   >
     
     <v-card-text class="text-black text-h5 py-2 bg-white">
@@ -20,8 +20,7 @@
         <template #append>
           <div class="justify-self-end">
             <span class="subheading me-2 font-weight-bold">{{ task.likes }}</span>
-                  <v-icon class="me-1 like" icon="mdi-thumb-up" @click="getLike()"></v-icon>
-                  <v-icon class="me-1 dislike" icon="mdi-thumb-down"></v-icon>
+                  <v-icon class="me-1 like" icon="mdi-thumb-up" color="grey-darken-1" @click="getLike()"></v-icon>
           </div>
         </template>
       </v-list-item>
@@ -41,7 +40,7 @@ export default {
   },
   methods: {
     getLike() {
-      
+
     }
   }
 }

@@ -17,7 +17,7 @@
           v-bind="props"
         >
         
-        <v-icon icon="mdi-plus-circle-outline" class="mr-4"/>
+        <v-icon icon="mdi-plus-thick" class="mr-4"/>
           Cadastrar história
         </v-btn>
       </template>
@@ -30,34 +30,39 @@
             <v-col>
               <v-col>
                 <v-textarea
+                  v-model="title"
                   solo
                   name="input-7-4"
                   label="Insira sua história aqui..."
                 ></v-textarea>
+              <v-switch v-model="switchMe" :label="'Essa história é sem graça?'" class="left-aligned-label" color="orange-darken-4"></v-switch>
               </v-col>
-            <v-switch v-model="switchMe" :label="'Essa história é sem graça?'" class="left-aligned-label" color="yellow"></v-switch>
           </v-col>
         </v-row>
-
-        </v-card-text>
-        <v-card-actions>
+<v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="green"
+           <v-btn
+            class="bg-red"
+            rounded="pill"
+            color=""
             variant="text"
             @click="dialog = false"
           >
-            Save
+            Fechar
           </v-btn>
+
           <v-btn
-            color="red"
-            variant="text"
-            @click="dialog = false"
+            class="bg-green"
+            rounded="pill"
+            @click="addNewTask()"
           >
-            Close
+            Salvar
           </v-btn>
-          
+
+         
         </v-card-actions>
+        </v-card-text>
+        
       </v-card>
     </v-dialog>
   </v-row>
@@ -65,10 +70,22 @@
 
 <script>
   export default {
+    emits: ["newTask"],
     data: () => ({
       dialog: false,
       switchMe: false,
+      title: null,
     }),
+     methods: {
+    addNewTask() {
+      this.dialog = false
+      console.log(this.title)
+      this.$emit("newTask", {
+        title: this.title,
+      })
+      this.title = ""      
+    },
+  },
   }
 </script>
 

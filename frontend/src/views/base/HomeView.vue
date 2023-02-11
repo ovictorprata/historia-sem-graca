@@ -25,9 +25,10 @@
               class="mr-3"
               :size="21"
             ></v-progress-circular>
-            Outra história
+            Ler outra história
           </v-btn>       
-            <popup-form-story/>
+
+            <popup-form-story @new-task="addNewTask" />
         </v-col>
       </v-row>
 
@@ -48,7 +49,6 @@ import { useAccountsStore } from "@/stores/accountsStore"
 import AppNavBar from "@/components/AppNavBar.vue"
 import TasksApi from "@/api/tasks.api.js"
 import TaskSemPermissoes from "@/components/TaskSemPermissoes.vue"
-import TaskForm from "@/components/TaskForm.vue"
 import PopupFormStory from "@/components/PopupFormStory.vue"
 import { useAppStore } from "@/stores/appStore"
 export default {
@@ -56,7 +56,6 @@ export default {
   components: {
     AppNavBar,
     TaskSemPermissoes,
-    TaskForm,
     PopupFormStory
   },
   setup() {
@@ -89,10 +88,15 @@ export default {
       this.loading = true
       TasksApi.addNewTask(task.title).then((task) => {
         this.appStore.showSnackbar(`Sua história sem graça foi adicionada #${task.id}`)
-        this.getTasks()
         this.loading = false
       })
-    },
+    },    
   }
 }
 </script>
+
+<style>
+  template {
+    background-color: white !important;
+  }
+</style>
