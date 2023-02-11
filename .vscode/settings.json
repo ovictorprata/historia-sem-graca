@@ -1,7 +1,0 @@
-{
-  "python.testing.pytestArgs": [
-    "historia_sem_graca"
-  ],
-  "python.testing.unittestEnabled": false,
-  "python.testing.pytestEnabled": true
-}
