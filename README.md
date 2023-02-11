@@ -1,3 +1,12 @@
+# História sem graça
+
+## SOBRE
+- O projeto mostra que é possível tirar sorrisos com histórias sem graça, já que a vida nos oferece um monte de histórias sem graça.
+- História sem graça foi inspirado em um site antigo de casos aleatórios funcionando como um "mini blog" que você lê de forma randômica as histórias sem graça.
+
+## DEMONSTRAÇÃO
+- Tem um vídeo que falo um pouco mais do projeto [aqui](https://www.youtube.com/watch?v=AOQLKPdgD-A)
+
 # d-jà vue
 
 Um template de projeto completo **full-stack**, **pronto para produção**, com boas práticas e focado na produtividade. Combina um frontend (Vue|Nuxt.JS|Vuetify) e Backend Python (Django API)
