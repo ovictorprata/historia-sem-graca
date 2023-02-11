@@ -7,9 +7,10 @@
 
     <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
+
           <v-btn
             color="yellow"
-            min-width="228"
+            min-width="400"
             rel="noopener noreferrer"
             size="x-large"
             variant="flat"
@@ -26,6 +27,7 @@
             ></v-progress-circular>
             Outra história
           </v-btn>       
+            <popup-form-story/>
         </v-col>
       </v-row>
 
@@ -36,6 +38,7 @@
     </v-responsive>
   </v-container>
   </v-row>
+
 </div>
 </template>
 
@@ -45,16 +48,24 @@ import { useAccountsStore } from "@/stores/accountsStore"
 import AppNavBar from "@/components/AppNavBar.vue"
 import TasksApi from "@/api/tasks.api.js"
 import TaskSemPermissoes from "@/components/TaskSemPermissoes.vue"
-
+import TaskForm from "@/components/TaskForm.vue"
+import PopupFormStory from "@/components/PopupFormStory.vue"
+import { useAppStore } from "@/stores/appStore"
 export default {
   
   components: {
     AppNavBar,
-    TaskSemPermissoes
+    TaskSemPermissoes,
+    TaskForm,
+    PopupFormStory
+  },
+  setup() {
+    const appStore = useAppStore()
+    return { appStore }
   },
   data() {
     return {
-      loading: false,
+      loading: null,
       items: [],
       id: null,
       title: null,
@@ -71,6 +82,14 @@ export default {
       this.loading = true
       TasksApi.getTasksNonLogged().then((data) => {
         this.items = data.todos
+        this.loading = false
+      })
+    },
+    addNewTask(task) {
+      this.loading = true
+      TasksApi.addNewTask(task.title).then((task) => {
+        this.appStore.showSnackbar(`Sua história sem graça foi adicionada #${task.id}`)
+        this.getTasks()
         this.loading = false
       })
     },

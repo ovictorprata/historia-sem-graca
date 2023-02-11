@@ -3,21 +3,16 @@
     <v-app-bar-title class="title--nav-bar">{{ title }}</v-app-bar-title>
     <template #append>
       <v-btn icon="mdi-home" :to="{ name: 'base-home' }" color="black"></v-btn>
-      <!-- <v-btn
-        :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
-        color="black"
-        @click.stop="themeClick">
-      </v-btn> -->
-      <v-btn icon="mdi-magnify" color="black"></v-btn>
 
-      <v-btn icon="mdi-logout" color="black">
-        <v-icon icon="mdi-logout" />
+
+      <!-- <v-btn icon="mdi-logout" color="black"> -->
+        <!-- <v-icon icon="mdi-logout" />
         <v-menu activator="parent">
           <v-list>
             <v-list-item v-if="!loggedUser" :to="{ name: 'accounts-logout' }"> Sair </v-list-item>
           </v-list>
         </v-menu>
-      </v-btn>
+      </v-btn> -->
     </template>
   </v-app-bar>
 </template>

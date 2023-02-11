@@ -20,7 +20,7 @@
         <template #append>
           <div class="justify-self-end">
             <span class="subheading me-2 font-weight-bold">{{ task.likes }}</span>
-                  <v-icon class="me-1 like" icon="mdi-thumb-up"></v-icon>
+                  <v-icon class="me-1 like" icon="mdi-thumb-up" @click="getLike()"></v-icon>
                   <v-icon class="me-1 dislike" icon="mdi-thumb-down"></v-icon>
           </div>
         </template>
@@ -39,6 +39,11 @@ export default {
       default: null,
     },
   },
+  methods: {
+    getLike() {
+      
+    }
+  }
 }
 </script>
 
