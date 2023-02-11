@@ -34,6 +34,7 @@
                   solo
                   name="input-7-4"
                   label="Insira sua história aqui..."
+                  @keyup.enter="addNewTask()"
                 ></v-textarea>
               <v-switch v-model="switchMe" :label="'Essa história é sem graça?'" class="left-aligned-label" color="orange-darken-4"></v-switch>
               </v-col>
@@ -79,11 +80,11 @@
      methods: {
     addNewTask() {
       this.dialog = false
-      console.log(this.title)
       this.$emit("newTask", {
         title: this.title,
       })
       this.title = ""      
+      this.switchMe = ""      
     },
   },
   }

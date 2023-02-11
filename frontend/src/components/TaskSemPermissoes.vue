@@ -19,8 +19,8 @@
       <v-list-item class="w-100">
         <template #append>
           <div class="justify-self-end">
-            <span class="subheading me-2 font-weight-bold">{{ task.likes }}</span>
-                  <v-icon class="me-1 like" icon="mdi-thumb-up" color="grey-darken-1" @click="getLike()"></v-icon>
+            <span class="subheading me-2 font-weight-bold">{{ fake_like }}</span>
+                  <v-icon class="me-1 like" icon="mdi-thumb-up" color="grey-darken-1" @click="addLike()"></v-icon>
           </div>
         </template>
       </v-list-item>
@@ -32,17 +32,28 @@
 <script>
 export default {
   name: "TasksModel",
-  props: {
-    task: {
-      type: Object,
-      default: null,
+    props: {
+      task: {
+        type: Object,
+        default: null,
+      },
     },
-  },
+    emits: ["newLike"],
+  data: () => ({
+    fake_like: 0,
+    click: false,
+  }),
   methods: {
-    getLike() {
-
-    }
+    addLike() {
+      if(this.click === true) {
+        this.fake_like -= 1
+        this.click = false
+      } else {
+        this.fake_like += 1
+        this.click = true
+      }
   }
+}
 }
 </script>
 
