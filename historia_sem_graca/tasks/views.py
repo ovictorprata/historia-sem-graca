@@ -25,12 +25,15 @@ def list_todos(request):
 @ajax_login_required
 def remove_story(request, pk):
     todo_svc.delete_todo(pk)
+    return HttpResponse("IDK")
+
 
 @ajax_login_required
 def update_story(request):
     id = request.POST.get('id_to_up')
     description = request.POST.get('new_description')
     todo_svc.update_story(id, description)
+    return HttpResponse("IDK")
 
 def like(request):
     id = request.POST.get('id')
