@@ -7,6 +7,8 @@
           class="mx-4"
           icon="mdi-linkedin"
           variant="text"
+          herf="https://www.linkedin.com/in/ovictorprata/"
+          target="_blank"
           :absolute="!fixed"
         ></v-btn>
         <v-btn

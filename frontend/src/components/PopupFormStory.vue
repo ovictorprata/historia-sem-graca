@@ -20,7 +20,7 @@
           Cadastrar história
         </v-btn>
       </template>
-      <v-card class="bg-lime-lighten-3">
+      <v-card class="bg-yellow-lighten-3">
         <v-card-text>
         <v-card-title>
           <span class="text-h5">Cadastre nova história:</span>
@@ -33,20 +33,20 @@
                   solo
                   name="input-7-4"
                   label="Insira sua história aqui..."
+                  class="bg-white rounded-lg"
                   @keyup.enter="addNewTask()"
                 ></v-textarea>
               <v-switch v-model="switchMe" :label="'Essa história é sem graça?'" class="left-aligned-label" color="orange-darken-4"></v-switch>
               </v-col>
           </v-col>
         </v-row>
-<v-card-actions>
+          <v-row v-show="is_boring" class="ml-3">sad</v-row>
+        <v-card-actions>
           <v-spacer></v-spacer>
-           <v-btn
-            class="bg-red"
-            rounded="pill"
-            color=""
-            variant="text"
-            @click="dialog = false"
+          <v-btn
+          class="text-red"
+          variant="text"
+          @click="dialog = false"
           >
             Fechar
           </v-btn>
@@ -75,12 +75,13 @@
       dialog: false,
       switchMe: false,
       title: null,
+      isnt_funny: false,
     }),
      methods: {
     addNewTask() {
       this.dialog = false
       this.$emit("newTask", {
-        title: this.title,
+      title: this.title,
       })
       this.title = ""      
       this.switchMe = ""      
