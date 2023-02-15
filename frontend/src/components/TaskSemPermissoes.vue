@@ -1,15 +1,16 @@
 <template>
 <div>
+  <p class="mb-12 text-h2">história sem graça</p>
   <v-card
     class="mx-auto title "
     color="#dbd467"
-    max-width="400"
+    max-width="600"
 
     
     :title="'história - #' + String(task.id)"
   >
     
-    <v-card-text class="text-black text-h5 py-2 bg-white">
+    <v-card-text class="text-black text-h5 py-2 bg-white text-left">
       {{ task.description }}
     </v-card-text>
 
@@ -20,7 +21,7 @@
         <template #append>
           <div class="justify-self-end">
             <span class="subheading me-2 font-weight-bold">{{ fake_like }}</span>
-                  <v-icon class="me-1 like" icon="mdi-thumb-up" color="grey-darken-1" @click="addLike()"></v-icon>
+                  <v-icon class="me-1 like" icon="mdi-heart" color="red" @click="addLike()"></v-icon>
           </div>
         </template>
       </v-list-item>
@@ -60,6 +61,7 @@ export default {
 <style>
   .title {
     color: black;
+    text-align: left;
   }
 
   .like {

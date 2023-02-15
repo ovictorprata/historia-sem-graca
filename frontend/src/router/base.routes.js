@@ -1,6 +1,6 @@
 // Composables
 import EmptyLayout from "@/layouts/default/EmptyLayout.vue"
-import HomeView from "@/views/base/HomeView.vue"
+import HomeView from "@/components/HomeView.vue"
 import GetStartedView from "@/views/base/GetStartedView.vue"
 
 export default [

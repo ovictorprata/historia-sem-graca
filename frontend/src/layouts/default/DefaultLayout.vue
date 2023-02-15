@@ -1,9 +1,9 @@
 <template>
-  <VLayout>
+  <VLayout class="fill-height">
     <app-error-dialog :show="showErrorMessage" :message="errorMessage" @close="closeErrorDialog" />
     <app-snackbar />
-    <VApp :theme="theme">
-      <app-nav-bar :theme="theme" @theme-click="onThemeClick"></app-nav-bar>
+    <VApp>
+      <app-nav-bar></app-nav-bar>
       <VMain>
         <RouterView />
       </VMain>
@@ -12,15 +12,7 @@
   </VLayout>
 </template>
 
-<script setup>
-import { ref } from "vue"
 
-const theme = ref("dark")
-
-function onThemeClick() {
-  theme.value = theme.value === "light" ? "dark" : "light"
-}
-</script>
 
 <script>
 import { mapState } from "pinia"

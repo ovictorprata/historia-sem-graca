@@ -27,20 +27,19 @@ module.exports = {
     res.send(response);
   },
   add: (req, res) => {
-    const loggedUser = accounts.loginRequired(req, res);
-    if (!loggedUser) {
-      return;
-    }
     const { description } = req.body;
     const id = getMaxId(data.tasks) + 1;
     const newTask = {
       id,
       description,
-      userId: loggedUser.id,
     };
     data.tasks.push(newTask);
     res.send(newTask);
   },
+  list_random_story: (res) => {
+    debugger
+    data.tasks.random_list()
+  }
   // remove: (req, res) => {
   //   const loggedUser = accounts.loginRequired(req, res);
   //   if (!loggedUser) {

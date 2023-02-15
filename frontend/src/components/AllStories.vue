@@ -2,7 +2,6 @@
   <v-card
     class="mx-auto title"
     color="#fffaaf"
-    theme="dark"
     max-width="400"
     title="🗿"
   >
