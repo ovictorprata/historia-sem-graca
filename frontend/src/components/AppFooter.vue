@@ -5,20 +5,24 @@
       <div>
         <v-btn
           class="mx-4"
+          href="https://www.linkedin.com/in/ovictorprata/"
+          target="_blank"
           icon="mdi-linkedin"
           variant="text"
-          herf="https://www.linkedin.com/in/ovictorprata/"
-          target="_blank"
           :absolute="!fixed"
         ></v-btn>
         <v-btn
           class="mx-4"
+          href="https://api.whatsapp.com/send?phone=5531973114856&text=Ol%C3%A1%20@ovictorprata,%20gostaria%20de%20conversar%20sobre%20o%20hist%C3%B3ria%20sem%20gra%C3%A7a%20com%20voc%C3%AA."
+          target="_blank"
           icon="mdi-whatsapp"
           variant="text"
           :absolute="!fixed"
         ></v-btn>
         <v-btn
           class="mx-4"
+          href="https://www.github.com/ovictorprata/"
+          target="_blank"
           icon="mdi-github"
           variant="text"
           :absolute="!fixed"
