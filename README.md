@@ -12,8 +12,25 @@
 
 ## RODAR O PROJETO LOCALMENTE
 
-`cd historia-sem-graca`
+1. Builde os containers:
 
 `docker-compose build`
 
+2. Suba os containers:
+
 `docker-compose up -d backend frontend`
+
+3. Crie um super usuário:
+`docker compose exec backend ./manage.py createsuperuser`
+
+- Siga as intruções do comando
+
+4. Entre no `localhost/admin` e logue com o super usuário criado
+
+5. Cadastre uma história sem graça pelo admin do Django:
+![teste](https://user-images.githubusercontent.com/103593286/227375340-f1ae2d4b-4999-4da0-b865-c284343379a4.gif)
+
+6. Acesse `localhost` e veja o projeto funcionando 😉
+
+⚠️ PS: É necessário executar os passos 4 a 6 devido a um débito técnico do botão de cadastrar, irei implementar isso futuramente.
+
