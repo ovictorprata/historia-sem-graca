@@ -14,11 +14,11 @@
 
 1. Builde os containers:
 
-`docker-compose build`
+`docker compose build`
 
 2. Suba os containers:
 
-`docker-compose up -d backend frontend`
+`docker compose up -d backend frontend`
 
 3. Crie um super usuário:
 `docker compose exec backend ./manage.py createsuperuser`
