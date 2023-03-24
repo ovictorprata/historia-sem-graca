@@ -7,7 +7,7 @@
 - 🎥 Tem um vídeo que falo um pouco mais do projeto [aqui](https://www.youtube.com/watch?v=AOQLKPdgD-A)
 
 - Demonstração em gif:
-![demonstrao-historia-sem-graa (1)](https://user-images.githubusercontent.com/103593286/227344782-b63ff3b5-dd8f-4e68-a796-8383e26b5c74.gif)
+![demonstracao historia sem graca acelerado](https://user-images.githubusercontent.com/103593286/227523449-8afd4286-1e00-43df-bfe0-56640a7a0309.gif)
 
 
 ## RODAR O PROJETO LOCALMENTE
