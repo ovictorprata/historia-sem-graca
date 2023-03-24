@@ -21,6 +21,7 @@
 `docker compose up -d backend frontend`
 
 3. Crie um super usuário:
+
 `docker compose exec backend ./manage.py createsuperuser`
 
 - Siga as intruções do comando
