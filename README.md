@@ -4,9 +4,7 @@
 - História sem graça foi inspirado em um site antigo de casos aleatórios funcionando como um "mini blog" que você lê de forma randômica as histórias sem graça.
 
 ## DEMONSTRAÇÃO
-- 🎥 Tem um vídeo que falo um pouco mais do projeto [aqui](https://www.youtube.com/watch?v=AOQLKPdgD-A)
 
-- Demonstração em gif:
 ![demonstracao historia sem graca acelerado](https://user-images.githubusercontent.com/103593286/227523449-8afd4286-1e00-43df-bfe0-56640a7a0309.gif)
 
 
